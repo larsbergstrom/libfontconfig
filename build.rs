@@ -9,12 +9,12 @@ use std::env;
 
 fn main() {
     // if the system version of fontconfig is at least 2.11.1, use it
-    if pkg_config::Config::new().atleast_version("2.11.1").find("fontconfig").is_ok() {
-        return;
-    }
+//    if pkg_config::Config::new().atleast_version("2.11.1").find("fontconfig").is_ok() {
+//        return;
+//    }
 
     assert!(Command::new("make")
-        .args(&["-R", "-f", "makefile.cargo"])
+        .args(&["--debug=v", "-R", "-f", "makefile.cargo"])
         .status()
         .unwrap()
         .success());
